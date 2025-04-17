@@ -11,7 +11,7 @@
             const sidebar = document.getElementById('sidebar');
             const mainContent = document.getElementById('main-content');
             sidebar.classList.toggle('-ml-64');
-            mainContent.classList.toggle('ml-64');
+            // mainContent.classList.toggle('ml-64');
         }
     </script>
     <style>
@@ -83,7 +83,7 @@
 
 
     <!-- Main Content -->
-    <div id="main-content" class="flex-1 ml-64 transition-all duration-300 flex flex-col overflow-y-auto">
+    <div id="main-content" class="flex-1 transition-all duration-300 flex flex-col overflow-y-auto">
         <header class="bg-red-600 text-white p-4 flex items-center">
             <button onclick="toggleSidebar()" class="mr-4 text-white text-xl focus:outline-none">☰</button>
             <span class="text-lg font-semibold">{{ $title ?? '' }}</span>
