@@ -1,35 +1,31 @@
 <?php
 
+use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 
 // use App\Http\Controllers\TrendMomentController;
 Route::view('/', 'layouts.main')->name('main');
+
 Route::view('/home-admin', 'home.admin')->name('home.admin');
 Route::view('/home-staff', 'home.staff')->name('home.staff');
-Route::view('/data-penjualan', 'data.penjualan')->name('data.penjualan');
-Route::view('/data-stok', 'data.stok')->name('data.stok');
+
+// Sumber Data
+Route::get('/data-penjualan', [DataController::class, 'Penjualan'])->name('data.penjualan');
+Route::get('/data-stok', [DataController::class, 'Stok'])->name('data.stok');
+
+Route::get('/data-bom', [DataController::class, 'BOM'])->name('data.bom');
+Route::get('/data-bom/create', [DataController::class, 'createBOM'])->name('data.bom.create');
+Route::post('/data-bom/store', [DataController::class, 'storeBOM'])->name('data.bom.store');
+
+
+Route::get('/data-bahan-baku', [DataController::class, 'BahanBaku'])->name('data.bahan.baku');
+Route::get('/data-produk', [DataController::class, 'Produk'])->name('data.produk');
+Route::get('/data-transaksi', [DataController::class, 'Transaksi'])->name('data.transaksi');
+
 Route::view('/laporan-penjualan', 'laporan.penjualan')->name('laporan.penjualan');
 Route::view('/laporan-stok', 'laporan.stok')->name('laporan.stok');
 Route::view('/produk-knowledge', 'produk.knowledge')->name('produk.knowledge');
 Route::view('/produk-BOM', 'produk.BOM')->name('produk.BOM');
 Route::view('/user-index', 'user.index')->name('user.index');
-Route::view('/perhitungan-index', 'perhitungan.index')->name('perhitungan.index');
 Route::view('/login-page', 'auth.login')->name('auth.login');
 Route::view('/kasir-index', 'kasir.index')->name('kasir.index');
-// Route::prefix('data')->group(function () {
-//     Route::view('stok', 'data.stok.index')->name('data.stok');
-//     Route::view('penjualan', 'data.penjualan.index')->name('data.penjualan');
-// });
-
-// Route::view('perhitungan', 'perhitungan')->name('perhitungan');
-
-// Route::prefix('laporan')->group(function () {
-//     Route::view('stok', 'laporan.stok')->name('laporan.stok');
-//     Route::view('penjualan', 'laporan.penjualan')->name('laporan.penjualan');
-// });
-// Route::prefix('trend-moment')->group(function () {
-//     Route::get('/', [TrendMomentController::class, 'index'])->name('trend-moment.index');
-//     Route::post('/calculate', [TrendMomentController::class, 'calculate'])->name('trend-moment.calculate');
-//     Route::get('/chart', [TrendMomentController::class, 'chart'])->name('trend-moment.chart'); // opsional
-// });
-

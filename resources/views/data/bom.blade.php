@@ -1,36 +1,38 @@
 @extends('layouts.main')
 
 @section('title')
-Data Stok
+Data Build Of Material (BOM)
 @endsection
 
 @section('content')
 <div class="card">
     <div>
-        <h5 class="card-header">Data Stok</h5>
+        <h5 class="card-header">Data Build Of Material (BOM)</h5>
         <div class="card-body">
-            <a href="" class="btn btn-success">Tambah Data</a>
+            <a href="{{ route('data.bom.create') }}" class="btn btn-success">Tambah Data</a>
         </div>
     </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table id="stokTable" class="table table-bordered table-striped">
+      <table id="bomTable" class="table table-bordered table-striped">
         <thead class="table-success">
           <tr>
             <th>No</th>
-            {{-- <th>BOM</th> --}}
-            <th>Jumlah Ketersediaan</th>
-            <th>Jumlah Minimum</th>
-            <th>Tanggal Update Data</th>
+            <th>Produk</th>
+            <th>Bahan Baku</th>
+            <th>Satuan</th>
+            <th>Jumlah Bahan</th>
+            <th>Terakhir Di Perbarui</th>
           </tr>
         </thead>
         <tbody>
-            @foreach ($stok as $index => $item)
+            @foreach ($bom as $index => $item)
               <tr>
                 <td>{{ $index + 1 }}</td>
-                {{-- <td>{{ $item->id_bom }}</td> --}}
-                <td>{{ $item->jumlah_ketersediaan }}</td>
-                <td>{{ $item->jumlah_minimum }}</td>
+                <td>{{ $item->id_produk }}</td>
+                <td>{{ $item->id_bahan_baku }}</td>
+                <td>{{ $item->satuan }}</td>
+                <td>{{ $item->jumlah_bahan }}</td>
                 <td>{{ $item->updated_at->format('d-m-Y H:i') }}</td>
               </tr>
             @endforeach
@@ -44,7 +46,7 @@ Data Stok
 @section('scripts')
 <script>
   $(document).ready(function () {
-    $('#stokTable').DataTable();
+    $('#bomTable').DataTable();
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)

@@ -11,7 +11,7 @@
         />
         <!--end::Brand Image-->
         <!--begin::Brand Text-->
-        <span class="brand-text fw-light">HUNDRED SMOKE</span>
+        <span class="brand-text fw-light"><strong>HUNDRED SMOKE</strong> </span>
         <!--end::Brand Text-->
       </a>
       <!--end::Brand Link-->
@@ -34,6 +34,13 @@
               <p>Pengguna</p>
             </a>
           </li>
+        <li class="nav-item">
+            <a href=""
+                       class="nav-link">
+              <i class="nav-icon bi bi-people"></i>
+              <p>Kasir</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon bi bi-database"></i>
@@ -51,21 +58,35 @@
                   </a>
                 </li>
                 <li class="nav-item">
+                  <a href="{{ route('data.transaksi') }}"
+                     class="nav-link {{ request()->routeIs('data.transaksi') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Transaksi</p>
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a href="{{ route('data.penjualan') }}"
                      class="nav-link {{ request()->routeIs('data.penjualan') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-circle"></i>
                     <p>Penjualan</p>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a href="{{ route('data.bahan.baku') }}"
+                     class="nav-link {{ request()->routeIs('data.bahan.baku') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Bahan Baku</p>
+                  </a>
+                </li>
               </ul>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{ route('perhitungan.index') }}"
                        class="nav-link {{ request()->routeIs('perhitungan.index') ? 'active' : '' }}">
               <i class="nav-icon bi bi-pie-chart"></i>
               <p>Perhitungan</p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon bi bi-basket"></i>
@@ -76,15 +97,15 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{ route('produk.knowledge') }}"
-                     class="nav-link {{ request()->routeIs('produk.knowledge') ? 'active' : '' }}">
+                  <a href="{{ route('data.produk') }}"
+                     class="nav-link {{ request()->routeIs('data.produk') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-circle"></i>
                     <p>Product Knowledge</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('produk.BOM') }}"
-                     class="nav-link {{ request()->routeIs('produk.BOM') ? 'active' : '' }}">
+                  <a href="{{ route('data.bom') }}"
+                     class="nav-link {{ request()->routeIs('data.bom') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-circle"></i>
                     <p>BOM</p>
                   </a>
@@ -118,7 +139,7 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('auth.login') }}"
-                class="nav-link{{ request()->routeIs('auth.login') ? 'active' : '' }}"">
+                class="nav-link{{ request()->routeIs('auth.login') ? 'active' : '' }}">
               <i class="nav-icon bi bi-box-arrow-in-right" style="color: red"></i>
               <p>Keluar</p>
             </a>

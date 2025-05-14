@@ -1,36 +1,36 @@
 @extends('layouts.main')
 
 @section('title')
-Data Stok
+Data Produk
 @endsection
 
 @section('content')
 <div class="card">
     <div>
-        <h5 class="card-header">Data Stok</h5>
+        <h5 class="card-header">Data Produk</h5>
         <div class="card-body">
             <a href="" class="btn btn-success">Tambah Data</a>
         </div>
     </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table id="stokTable" class="table table-bordered table-striped">
+      <table id="produkTable" class="table table-bordered table-striped">
         <thead class="table-success">
           <tr>
             <th>No</th>
             {{-- <th>BOM</th> --}}
-            <th>Jumlah Ketersediaan</th>
-            <th>Jumlah Minimum</th>
-            <th>Tanggal Update Data</th>
+            <th>Nama Produk</th>
+            <th>Deskripsi</th>
+            <th>Tanggal Update</th>
           </tr>
         </thead>
         <tbody>
-            @foreach ($stok as $index => $item)
+            @foreach ($produk as $index => $item)
               <tr>
                 <td>{{ $index + 1 }}</td>
                 {{-- <td>{{ $item->id_bom }}</td> --}}
-                <td>{{ $item->jumlah_ketersediaan }}</td>
-                <td>{{ $item->jumlah_minimum }}</td>
+                <td>{{ $item->nama_produk }}</td>
+                <td>{{ $item->deskripsi }}</td>
                 <td>{{ $item->updated_at->format('d-m-Y H:i') }}</td>
               </tr>
             @endforeach
@@ -44,7 +44,7 @@ Data Stok
 @section('scripts')
 <script>
   $(document).ready(function () {
-    $('#stokTable').DataTable();
+    $('#produkTable').DataTable();
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
