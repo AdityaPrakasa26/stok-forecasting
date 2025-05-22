@@ -12,10 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('bom', function (Blueprint $table) {
-            $table->json('id_produk')->change();
+            $table->dropForeign(['id_bahan_baku']);
+        });
+
+        Schema::table('bom', function (Blueprint $table) {
+            $table->json('id_bahan_baku')->change();
         });
     }
-
 
     /**
      * Reverse the migrations.

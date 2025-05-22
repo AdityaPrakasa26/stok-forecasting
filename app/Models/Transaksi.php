@@ -10,7 +10,7 @@ class Transaksi extends Model
 
     protected $fillable = [
         'id_produk',
-        'jumlah_item_dibeli',
+        'total_item_dibeli',
         'sub_total',
         'total',
         'waktu_transaksi',

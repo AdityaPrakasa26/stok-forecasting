@@ -13,11 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 class DataController extends Controller
 {
-    public function Stok()
-    {
-        $stok = Stok::all();
-        return view('data.stok', compact('stok'));
-    }
+     
     public function BOM()
     {
         $bom = BOM::all();

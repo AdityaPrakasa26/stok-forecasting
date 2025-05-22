@@ -56,6 +56,13 @@ Form Tambah Data BOM
         @error('harga_satuan') <div class="text-danger">{{ $message }}</div> @enderror
       </div>
 
+      {{-- Harga Satuan --}}
+      <div class="mb-3">
+        <label for="total_harga" class="form-label">Harga Total</label>
+        <input type="number" name="total_harga" class="form-control" required>
+        @error('total_harga') <div class="text-danger">{{ $message }}</div> @enderror
+      </div>
+
       <button type="submit" class="btn btn-primary">Simpan</button>
       <a href="{{ route('data.bom') }}" class="btn btn-secondary">Kembali</a>
     </form>

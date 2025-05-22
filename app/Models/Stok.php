@@ -13,4 +13,11 @@ class Stok extends Model
         'jumlah_ketersediaan',
         'jumlah_minimum',
     ];
+    protected $casts = [
+        'id_bom' => 'array',
+    ];
+    public function bom()
+    {
+        return $this->belongsTo(BOM::class, 'id_bom', 'id');
+    }
 }

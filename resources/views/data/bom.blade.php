@@ -27,16 +27,30 @@ Data Build Of Material (BOM)
         </thead>
         <tbody>
             @foreach ($bom as $index => $item)
-              <tr>
+                <tr>
                 <td>{{ $index + 1 }}</td>
-                <td>{{ $item->id_produk }}</td>
-                <td>{{ $item->id_bahan_baku }}</td>
+                <td>
+                    @foreach ((array) $item->id_produk as $id_produk)
+                    @php
+                        $produk = \App\Models\Produk::find($id_produk);
+                    @endphp
+                    <span class="badge bg-primary">{{ $produk->nama_produk ?? 'Produk Tidak Ditemukan' }}</span><br>
+                    @endforeach
+                </td>
+                <td>
+                    @foreach ((array) $item->id_bahan_baku as $id_bahan)
+                    @php
+                        $bahan = \App\Models\BahanBaku::find($id_bahan);
+                    @endphp
+                    <span class="badge bg-warning text-dark">{{ $bahan->nama_bahan ?? 'Bahan Tidak Ditemukan' }}</span><br>
+                    @endforeach
+                </td>
                 <td>{{ $item->satuan }}</td>
                 <td>{{ $item->jumlah_bahan }}</td>
                 <td>{{ $item->updated_at->format('d-m-Y H:i') }}</td>
-              </tr>
+                </tr>
             @endforeach
-          </tbody>
+        </tbody>
       </table>
     </div>
   </div>
